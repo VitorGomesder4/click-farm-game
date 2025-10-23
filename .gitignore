@@ -1,0 +1,73 @@
+# Learn more: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# ===============================
+# DEPENDÊNCIAS
+# ===============================
+node_modules/
+
+# ===============================
+# EXPO
+# ===============================
+.expo/
+.expo-shared/
+dist/
+web-build/
+expo-env.d.ts
+
+# ===============================
+# BUILD / OUTPUT
+# ===============================
+build/
+coverage/
+app-example
+
+# ===============================
+# EDITOR / CONFIG LOCAL
+# ===============================
+.vscode/
+
+# ===============================
+# NATIVO (ANDROID / iOS)
+# ===============================
+/android/
+/ios/
+/.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# ===============================
+# METRO BUNDLER
+# ===============================
+.metro-health-check*
+
+# ===============================
+# LOGS
+# ===============================
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# ===============================
+# SISTEMA OPERACIONAL
+# ===============================
+.DS_Store
+Thumbs.db
+*.pem
+
+# ===============================
+# AMBIENTE LOCAL (.env)
+# ===============================
+.env
+.env*.local
+.env.development
+.env.production
+.env.test
+
+# ===============================
+# TYPESCRIPT
+# ===============================
+*.tsbuildinfo
