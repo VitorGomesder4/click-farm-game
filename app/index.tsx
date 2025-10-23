@@ -4,22 +4,33 @@ import { Button, StyleSheet, Text, View } from "react-native";
 export default function Index() {
   const [dinheiro, setDinheiro] = useState<number>(0);
   const [valor_clique, setValor_clique] = useState<number>(1);
+  const [custo, setCusto] = useState<number>(1); //multiplicador de escala
+
+  const escalar_custo = () => {
+    setCusto(custo + 2);
+  };
 
   const addValor = () => {
     setDinheiro(dinheiro + valor_clique);
   };
 
+  const auto_click = () => {
+    setDinheiro(dinheiro + valor_clique);
+  };
+
   const modificarClique = (dinheiro: number) => {
-    if (dinheiro >= 10) {
+    if (dinheiro >= 10 * custo) {
       setValor_clique(valor_clique + 1);
-      setDinheiro(dinheiro - 10);
+      setDinheiro(dinheiro - 10 * custo);
+      escalar_custo();
     }
   };
 
   const modificarClique2 = (dinheiro: number) => {
-    if (dinheiro >= 18) {
+    if (dinheiro >= 18 * custo) {
       setValor_clique(valor_clique + 3);
-      setDinheiro(dinheiro - 18);
+      setDinheiro(dinheiro - 18 * custo);
+      escalar_custo();
     }
   };
 
@@ -49,7 +60,7 @@ export default function Index() {
 
           <View style={styles.buff}>
             <Button
-              title="+1 por 10"
+              title={`Auto click`}
               color={colors.success}
               onPress={() => modificarClique(dinheiro)}
             />
@@ -57,7 +68,15 @@ export default function Index() {
 
           <View style={styles.buff}>
             <Button
-              title="+3 por 18"
+              title={`+1 por ${10 * custo}`}
+              color={colors.success}
+              onPress={() => modificarClique(dinheiro)}
+            />
+          </View>
+
+          <View style={styles.buff}>
+            <Button
+              title={`+3 por ${18 * custo}`}
               color={colors.accent}
               onPress={() => modificarClique2(dinheiro)}
             />
